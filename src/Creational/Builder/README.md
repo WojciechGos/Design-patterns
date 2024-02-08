@@ -1,1 +1,1 @@
-![diagram-2519830863895455758.png](..%2F..%2F..%2F..%2F..%2F..%2FAppData%2FLocal%2FTemp%2Fdiagram-2519830863895455758.png)
+![diagram-2519830863895455758](https://github.com/WojciechGos/Design-patterns/assets/36795978/7c5a5daf-7630-4707-8554-7f504030eed5)
