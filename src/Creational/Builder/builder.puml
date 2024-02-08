@@ -1,0 +1,84 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+class Client{
+    - String name
+    - String surname
+}
+
+class Vehicle {
+    - String brand
+    - String model
+}
+
+class Commission {
+    - Long id;
+    - String description;
+    - Client client;
+    - Vehicle vehicle;
+    - BigDecimal cost;
+    - String status;
+    - String currency;
+    - String department;
+}
+
+interface CommissionDTO {
+    String getDescription()
+    Client getClient()
+    Vehicle getVehicle()
+}
+interface AnotherDTO
+
+Commission *-- Client
+Commission *-- Vehicle
+Commission ..> CommissionDTOBuilder
+CommissionDTOBuilder ..> CommissionDTO
+CommissionDTOBuilder ..> AnotherDTO
+
+
+class AnotherBuilder implements CommissionDTOBuilder {
+
+}
+
+interface CommissionDTOBuilder {
+    CommissionDTOBuilder buildClient(Client client);
+    CommissionDTOBuilder buildVehicle(Vehicle vehicle);
+    CommissionDTOBuilder buildDescription(String description);
+    CommissionDTOBuilder buildCurrency(String currency);
+    CommissionDTOBuilder buildDepartment(String department );
+    CommissionDTOBusiness build();
+}
+
+class CommissionDTOBusiness implements CommissionDTO{
+    private String description;
+    private Client client;
+    private Vehicle vehicle;
+
+    + CommissionDTOBusiness(String description, Client client, Vehicle vehicle)
+    + String getDescription() iption;
+    + Client getClient()
+    + Vehicle getVehicle()
+}
+
+class CommissionDTOBusinessBuilder implements CommissionDTOBuilder {
+
+    private String description;
+    private Client client;
+    private Vehicle vehicle;
+    private BigDecimal cost;
+    private String status;
+    private String currency;
+    private String department;
+    private CommissionDTOBusiness builder;
+    public CommissionDTOBuilder buildClient(Client client)
+    public CommissionDTOBuilder buildVehicle(Vehicle vehicle)
+    public CommissionDTOBuilder buildDescription(String description)
+    public CommissionDTOBuilder buildCurrency(String currency)
+    public CommissionDTOBuilder buildDepartment(String department)
+    public CommissionDTOBusiness build()
+}
+
+
+@enduml
